@@ -1,4 +1,4 @@
-# Misskey Now
+# Mastodon Now
 
 <p align="center">
 <img src="https://github.com/sasakulab/mastodon-now/raw/main/assets/96x96.png"

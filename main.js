@@ -12,21 +12,21 @@ async function ConvertVariableCheck() {
     const { version, instance, key } = results;
 
     if (version == '0.2.0') {
-        console.log('Misskey Now: Settings have Already Updated!');
+        console.log('Mastodon Now: Settings have Already Updated!');
         displayProfiles();
     } else if (typeof instance === 'undefined' && typeof key === 'undefined') {
         console.log(
-            'Misskey Now: Thank you for installing Misskey Now! Initialize Configuration.'
+            'Mastodon Now: Thank you for installing Mastodon Now! Initialize Configuration.'
         );
         const init = {
             version: manifestData.version,
             profiles: {},
         };
         await chrome.storage.local.set(init);
-        console.log('Misskey Now: Saving Settings (First Startup).');
+        console.log('Mastodon Now: Saving Settings (First Startup).');
     } else {
         console.log(
-            'Misskey Now: Thank you for Updating Misskey Now! Replace your Configuration.'
+            'Mastodon Now: Thank you for Updating Mastodon Now! Replace your Configuration.'
         );
         const results = await chrome.storage.local.get(['instance', 'key']);
         saveSettings = {};
@@ -39,7 +39,7 @@ async function ConvertVariableCheck() {
             profiles: saveSettings,
         };
         await chrome.storage.local.set(settings);
-        console.log('Misskey Now: Saving Settings (Replaced).');
+        console.log('Mastodon Now: Saving Settings (Replaced).');
     }
 }
 
@@ -47,7 +47,7 @@ async function ConvertVariableCheck() {
 async function reloadSaveData() {
     const results = await chrome.storage.local.get(['profiles']);
     saveSettings = results.profiles;
-    console.log('Misskey Now: Read Profiles Successfully');
+    console.log('Mastodon Now: Read Profiles Successfully');
 }
 
 // タブから URL, タイトルの取得
@@ -65,7 +65,7 @@ function buttonstatus(mode) {
     if (mode == 'default') {
         document.querySelector('.btn-send').className =
             'btn-sm w-100 btn-send btn-primary';
-        document.querySelector('.btn-send').textContent = 'Misskey Now!';
+        document.querySelector('.btn-send').textContent = 'Mastodon Now!';
         document.querySelector('.btn-send').disabled = false;
     } else if (mode == 'success') {
         document.querySelector('.btn-send').className =
@@ -111,15 +111,15 @@ async function generateNote() {
             body: str,
         });
         if (!response.ok) {
-            console.error('Misskey-now: Response Error!');
+            console.error('Mastodon-now: Response Error!');
             buttonstatus('abort');
         } else {
-            console.log('Misskey-now: Send');
+            console.log('Mastodon-now: Send');
             buttonstatus('success');
         }
         response.text();
     } catch (e) {
-        console.error('Misskey-now: Internal Error! : ' + e);
+        console.error('Mastodon-now: Internal Error! : ' + e);
         buttonstatus('abort');
     }
     // 一定時間経ったら再送信可能
@@ -143,7 +143,7 @@ async function saveSetting() {
         profiles: saveSettings,
     };
     await chrome.storage.local.set(settings);
-    console.log('Misskey-Now: Stored New Settings.');
+    console.log('Mastodon-Now: Stored New Settings.');
     const prevText = save_settings.textContent;
     const prevClass = save_settings.className;
     save_settings.textContent = '✓';
@@ -200,7 +200,7 @@ async function removeProfile() {
     };
     await chrome.storage.local.set(settings);
     displayProfiles();
-    console.log('Misskey-Now: Stored Removed Settings.');
+    console.log('Mastodon-Now: Stored Removed Settings.');
     settings_profile_name.value = '';
     settings_host.value = '';
     settings_api_key.value = '';
