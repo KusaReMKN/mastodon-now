@@ -7,7 +7,7 @@
 
 ## これはなに
 
-**\#now*do*ing** なノートを Misskey に投稿する Chrome 拡張機能です。
+**\#now*do*ing** なノートを Mastodon に投稿する Chrome 拡張機能です。
 
 ![#nowdoing](/img/nowdoing.png)
 
