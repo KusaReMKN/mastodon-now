@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Misskey Now",
+    "version": "0.2.0",
+    "description": "「Misskeyで僕の見ている世界を共有しようかな❓❕」 Misskey Now は閲覧中のウェブサイトを Misskey インスタンスへ共有するだけの拡張機能です",
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": ["main.js"]
+        }
+    ],
+    "permissions": ["tabs", "storage"],
+    "icons": {
+        "48": "assets/48x48.png",
+        "96": "assets/96x96.png"
+    },
+    "action": {
+        "default_popup": "main.html"
+    },
+    "host_permissions": [
+        "*://*/*"
+    ], 
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "misskey-now@sasakulab.com",
+            "strict_min_version": "109.0"
+        }
+    }
+}

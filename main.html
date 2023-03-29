@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misskey-now</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <script src="./assets/bootstrap.min.js"></script>
+</head>
+
+<body class="px-3 py-3">
+    <script defer src="main.js"></script>
+    <div id="intro" class="py-3 text-center">
+        <img src="./assets/96x96.png" alt="">
+        <h1>Misskey Now</h1>
+    </div>
+    <div id="input" class="">
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">Title</span>
+            <input type="text" class="form-control" placeholder="Title" id="popup_title">
+        </div>
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">URL</span>
+            <input type="text" class="form-control" placeholder="URL" id="popup_url" readonly>
+        </div>
+        <hr>
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">Profile</span>
+            <select class="form-select form-select-sm" id="popup_profile">
+                <option value="new">New Profile</option>
+            </select>
+        </div>
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">Range</span>
+            <select class="form-select form-select-sm" id="popup_range">
+                <option selected value="public">Public</option>
+                <option value="home">Home</option>
+                <option value="followers">Followers</option>
+            </select>
+        </div>
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">Hashtag</span>
+            <select class="form-select form-select-sm" id="popup_hash">
+                <option selected value="">(None)</option>
+                <option value="#nowplaying">#nowplaying</option>
+                <option value="#nowlistening">#nowlistening</option>
+                <option value="#nowwatching">#nowwatching</option>
+                <option value="#nowbrowsing">#nowbrowsing</option>
+                <option value="#nowvisiting">#nowvisiting</option>
+            </select>
+        </div>
+        <div class="input-group input-group-sm mb-2">
+            <span class="input-group-text">Note</span>
+            <textarea class="form-control" id="popup_note" autofocus></textarea>
+        </div>
+        <button class="btn-sm w-100 btn-send btn-primary">Misskey Now!</button>
+        <hr>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSettings">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Settings"
+                        aria-expanded="false" aria-controls="Settings">
+                        Settings
+                    </button>
+                </h2>
+                <div id="Settings" class="accordion-collapse collapse" aria-labelledby="headingSettings"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">Profile Name</span>
+                            <input type="text" class="form-control" id="settings_profile_name">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">Host</span>
+                            <input type="text" class="form-control" id="settings_host">
+                        </div>
+                        <div class="input-group input-group-sm mb-1">
+                            <span class="input-group-text">API Key</span>
+                            <input type="password" class="form-control" id="settings_api_key">
+                        </div>
+                        <button class="btn-sm btn-primary w-100 btn-save mb-1" id="save_settings">Save Settings</button>
+                        <button class="btn-sm btn-danger w-100 btn-delete mb-1" id="delete_settings">Delete Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="text-center text-muted p-1" style="font-size: x-small;">
+            <p>v<a id="version_footer">0.2.0</a> / (C) 2023 Sasakulab / MIT LICENSE</p>
+        </div>
+    </div>
+</body>
+</html>
