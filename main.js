@@ -11,7 +11,7 @@ async function ConvertVariableCheck() {
     ]);
     const { version, instance, key } = results;
 
-    if (version == '0.2.0') {
+    if (version == '0.1.0') {
         console.log('Mastodon Now: Settings have Already Updated!');
         displayProfiles();
     } else if (typeof instance === 'undefined' && typeof key === 'undefined') {
@@ -92,13 +92,11 @@ async function generateNote() {
     const range = popup_range.value;
     const hash = popup_hash.value;
     const note = popup_note.value;
-    const host = 'https://' + settings_host.value + '/api/notes/create';
+    const host = 'https://' + settings_host.value + '/api/v1/statuses';
     const apiKey = settings_api_key.value;
     strings = note + '\n\n' + '『' + title + '』 - ' + url + ' ' + hash;
     let data = {
-        i: apiKey,
-        visibility: range,
-        text: strings,
+        status: strings,
     };
     str = JSON.stringify(data);
     buttonstatus('sending');
@@ -107,6 +105,7 @@ async function generateNote() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey
             },
             body: str,
         });
