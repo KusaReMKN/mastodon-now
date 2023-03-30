@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Mastodon Now",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "「Mastodon で僕の見ている世界を共有しようかな❓❕」 Mastodon Now は閲覧中のウェブサイトを Mastodon へ共有するだけの拡張機能です",
     "content_scripts": [
         {
