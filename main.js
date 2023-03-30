@@ -11,7 +11,7 @@ async function ConvertVariableCheck() {
     ]);
     const { version, instance, key } = results;
 
-    if (version == '0.1.0') {
+    if (version == '0.2.0') {
         console.log('Mastodon Now: Settings have Already Updated!');
         displayProfiles();
     } else if (typeof instance === 'undefined' && typeof key === 'undefined') {
@@ -24,22 +24,6 @@ async function ConvertVariableCheck() {
         };
         await chrome.storage.local.set(init);
         console.log('Mastodon Now: Saving Settings (First Startup).');
-    } else {
-        console.log(
-            'Mastodon Now: Thank you for Updating Mastodon Now! Replace your Configuration.'
-        );
-        const results = await chrome.storage.local.get(['instance', 'key']);
-        saveSettings = {};
-        saveSettings['PreviousVersionData'] = {
-            instance: results.instance,
-            key: results.key,
-        };
-        const settings = {
-            version: manifestData.version,
-            profiles: saveSettings,
-        };
-        await chrome.storage.local.set(settings);
-        console.log('Mastodon Now: Saving Settings (Replaced).');
     }
 }
 
